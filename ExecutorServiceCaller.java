@@ -27,8 +27,22 @@ public class ExecutorServiceCaller{
             futures.add(executor.submit(task));
         }
 
-       
-		
+        int total = 0;
+
+		        for (Future<Integer> f : futures) {
+		            try {
+		                total += f.get();
+		            } catch (InterruptedException | ExecutionException e) {
+		                throw new RuntimeException(e);
+		            }
+		        }
+
+		        executor.shutdown();
+
+        System.out.println("The total is " + total);
+
+
+
 
     }
 }
