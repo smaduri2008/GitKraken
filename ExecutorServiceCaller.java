@@ -38,11 +38,5 @@ public class ExecutorServiceCaller{
 		        }
 
 		        executor.shutdown();
-
-        System.out.println("The total is " + total);
-
-
-
-
     }
 }
